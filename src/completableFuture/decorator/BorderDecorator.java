@@ -13,7 +13,8 @@ public class BorderDecorator extends Decorator{
     public String draw() {
 
         List<String> lines = Arrays.asList(super.draw().split("\n"));
-
+        // Network call to get border style, for example
+        simulateNetworkCall();
         StringBuilder borderedContent = new StringBuilder();
 
         // Doing this oldschool would be faster... But that's not what I'm testing, and this is more consise

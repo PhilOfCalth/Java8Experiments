@@ -8,6 +8,9 @@ public class LineNumberDecorator extends Decorator{
 
     public String draw() {
 
+        // Network call to get a line number, for example
+        simulateNetworkCall();
+
         String[] lines = component.draw().split("\n");
         StringBuilder numberedContent = new StringBuilder();
 
