@@ -21,7 +21,7 @@ public class LineNumberDecorator extends Decorator{
         String[] lines = component.draw().split("\n");
         StringBuilder numberedContent = new StringBuilder();
 
-        for(int lineNumber = 1; lineNumber <= lines.length; lineNumber++){
+        for(int lineNumber = startNumber; lineNumber < lines.length + startNumber; lineNumber++){
 
             numberedContent.append(lineNumber);
             numberedContent.append(": ");
@@ -36,6 +36,6 @@ public class LineNumberDecorator extends Decorator{
         // Network call to get border style, for example
         simulateNetworkCall();
         //do stuff that relates to this object
-        return 0;
+        return 1;
     }
 }
