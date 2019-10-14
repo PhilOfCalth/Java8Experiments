@@ -1,6 +1,7 @@
 package completableFuture.decorator;
 
 import java.util.Date;
+import java.util.concurrent.ExecutionException;
 
 public class Client {
 
@@ -13,7 +14,11 @@ public class Client {
                                                                 new TextComponent("Hello World!\n" +
                                                                             "This is Phil, playing with his code.\n" +
                                                                             "Goodbye now!")));
-        System.out.println("With Borders:\n"+borderedComponent.draw()+"\n");
+        try {
+            System.out.println(borderedComponent.draw()+"\n");
+        } catch (ExecutionException |InterruptedException e) {
+            e.printStackTrace();
+        }
         System.out.println("That took "+Long.toString((new Date()).getTime() - startTime)+"ms");
 
     }

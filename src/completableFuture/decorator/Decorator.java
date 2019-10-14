@@ -1,10 +1,12 @@
 package completableFuture.decorator;
 
+import java.util.concurrent.ExecutionException;
+
 public abstract class Decorator implements VisualComponentInterface {
 
     protected VisualComponentInterface component;
 
-    public String draw() {
+    public String draw() throws ExecutionException, InterruptedException {
         return component.draw();
     }
 
@@ -15,7 +17,7 @@ public abstract class Decorator implements VisualComponentInterface {
     /**
      * Quick and easy way to simulate a call to a database, microservice, etc
      */
-    protected void simulateNetworkCall(){
+    protected static void simulateNetworkCall(){
         try {
             Thread.sleep(3000);//3 seconds
         } catch (InterruptedException e) {
