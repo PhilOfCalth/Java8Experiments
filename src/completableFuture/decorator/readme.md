@@ -12,10 +12,10 @@ taken to complete the most complex decorator’s network call.
 
 ## Java Inheritance Model vs Decorator
 The example in the GoF book builds the abstract class Decorator with a constructor, which takes in the Component
-interface (TextComponent in my implementation). However, Java's inheritance model does not allow for overwriding
-constructors, so I just left a protected instance variable TextComponent in the abstract class, thus allowing concrete 
-subclasses to determine how they wish to inject this value. Of course in my example I used constructor injection, to
-stick closely to the text.
+interface (VisualComponentInterface in my implementation). However, Java's inheritance model does not allow for
+overwriding constructors, so I just left a protected instance variable of type VisualComponentInterface in the abstract
+class, thus allowing concrete  subclasses to determine how they wish to inject this value. Of course in my example I 
+used constructor injection, to stick closely to the text.
 
 ## Elements Cut From The GoF Example
 The book's example VisualComponent interface has 2 functions, Draw and Resize. I started down the path of recreating
@@ -23,7 +23,7 @@ this, but quickly realised I was doubling the amout of effort required without e
 I would test the usability of Completable future.
 
 The book uses this extra method to ilustrate that fact that you do not need to overwride all of the functions in the
-interface(Component or TextComponent in my case) as the abstract class (Decorator) does this work for you.
+interface(Component or VisualComponentInterface in my case) as the abstract class (Decorator) does this work for you.
 
 ## Methods Passed to supplyAsync
 The question here is to lambda or not to lambda. As a personal rule of thumb, if the function is more than three lines
