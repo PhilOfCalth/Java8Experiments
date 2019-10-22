@@ -41,9 +41,9 @@ VisualComponentInterface
     </coordinates>
     <panel_attributes>/Decorator/
 --
-- /VisualComponentInterface component/
+/# VisualComponentInterface component/
 --
-+ draw(){ return component.draw()}: String
++ draw(){ return component.draw(); }: String
 </panel_attributes>
     <additional_attributes/>
   </element>
@@ -86,13 +86,13 @@ VisualComponentInterface
       <x>190</x>
       <y>400</y>
       <w>280</w>
-      <h>90</h>
+      <h>80</h>
     </coordinates>
     <panel_attributes>LineNumberDecorator
 --
 - VisualComponentInterface component
 --
-+ draw(){ return component.draw()}
++ draw(): String
 </panel_attributes>
     <additional_attributes/>
   </element>
@@ -102,13 +102,13 @@ VisualComponentInterface
       <x>480</x>
       <y>400</y>
       <w>280</w>
-      <h>90</h>
+      <h>80</h>
     </coordinates>
     <panel_attributes>BorderDecorator
 --
 - VisualComponentInterface component
 --
-+ draw(){ return component.draw()}
++ draw(): String
 </panel_attributes>
     <additional_attributes/>
   </element>
