@@ -24,7 +24,7 @@ VisualComponentInterface
       <w>210</w>
       <h>70</h>
     </coordinates>
-    <panel_attributes>_TextComponent_
+    <panel_attributes>TextComponent
 --
 - String content
 --
