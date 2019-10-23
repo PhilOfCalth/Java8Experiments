@@ -13,7 +13,7 @@
 VisualComponentInterface
 --
 --
-/+Draw()/</panel_attributes>
+/+draw()/</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
