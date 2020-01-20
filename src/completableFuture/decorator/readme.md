@@ -2,6 +2,9 @@
 Pair CompletableFuture with the Gang of Four design pattern Decorator, accepting the caveat that each decorator is
 required to make some type of network call to complete. See if we can create any time saving.
 
+For use in Naimuri insight/blog post:
+https://www.naimuri.com/java8_decorator/
+
 # Implementation Notes
 
 ## Validity of this Test
