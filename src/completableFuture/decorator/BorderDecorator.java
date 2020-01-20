@@ -8,7 +8,7 @@ import java.util.concurrent.ExecutionException;
 
 public class BorderDecorator extends Decorator{
 
-    CompletableFuture<String> styleResolver;
+    final CompletableFuture<String> styleResolver;
 
     public BorderDecorator(VisualComponentInterface component) {
         styleResolver = CompletableFuture.supplyAsync(BorderDecorator::queryStyle);
@@ -17,23 +17,23 @@ public class BorderDecorator extends Decorator{
 
     public String draw() throws ExecutionException, InterruptedException {
 
-        List<String> lines = Arrays.asList(super.draw().split("\n"));
+        final List<String> lines = Arrays.asList(super.draw().split("\n"));
 
         //Normally we'd do something with the style info we got back, but that is outside the scope of this experiment
         styleResolver.get();
-        StringBuilder borderedContent = new StringBuilder();
+        final StringBuilder borderedContent = new StringBuilder();
 
         // Doing this oldschool would be faster... But that's not what I'm testing, and this is more concise
         OptionalInt maxOpt  = lines.stream()
                 .mapToInt(String::length)
                 .max();
-        int maxWidth = maxOpt.orElse(0);
-        StringBuilder headerFooter = genorateHeaderFooter(maxWidth);
+        final int maxWidth = maxOpt.orElse(0);
+        final StringBuilder headerFooter = genorateHeaderFooter(maxWidth);
 
         borderedContent.append(headerFooter);
         borderedContent.append('\n');
 
-        for(String line : lines)
+        for(final String line : lines)
         {
              borderedContent.append('|');
              borderedContent.append(line);
@@ -51,9 +51,9 @@ public class BorderDecorator extends Decorator{
         return borderedContent.toString();
     }
 
-    private StringBuilder genorateHeaderFooter(int width){
+    private StringBuilder genorateHeaderFooter(final int width){
 
-        StringBuilder headerFooter = new StringBuilder("+");
+        final StringBuilder headerFooter = new StringBuilder("+");
 
         for(int i = 0; i < width; i++){
             headerFooter.append('-');

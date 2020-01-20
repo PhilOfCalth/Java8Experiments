@@ -2,13 +2,13 @@ package completableFuture.decorator;
 
 public class TextComponent implements VisualComponentInterface {
 
-    private String content;
+    final private String content;
 
     public TextComponent(){
         this.content = "";
     }
 
-    public TextComponent(String content){
+    public TextComponent(final String content){
         this.content = content;
     }
 

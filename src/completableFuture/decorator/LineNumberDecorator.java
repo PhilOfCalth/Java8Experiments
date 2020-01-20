@@ -5,9 +5,9 @@ import java.util.concurrent.ExecutionException;
 
 public class LineNumberDecorator extends Decorator{
 
-    CompletableFuture<Integer> startLineResolver;
+    final CompletableFuture<Integer> startLineResolver;
 
-    public LineNumberDecorator(VisualComponentInterface component) {
+    public LineNumberDecorator(final VisualComponentInterface component) {
 
         startLineResolver = CompletableFuture.supplyAsync(this::findStartNumber);
         this.component = component;
@@ -16,10 +16,10 @@ public class LineNumberDecorator extends Decorator{
     public String draw() throws ExecutionException, InterruptedException {
 
         // Network call to get a line number, for example
-        int startNumber = startLineResolver.get();
+        final int startNumber = startLineResolver.get();
 
-        String[] lines = component.draw().split("\n");
-        StringBuilder numberedContent = new StringBuilder();
+        final String[] lines = component.draw().split("\n");
+        final StringBuilder numberedContent = new StringBuilder();
 
         for(int lineNumber = startNumber; lineNumber < lines.length + startNumber; lineNumber++){
 

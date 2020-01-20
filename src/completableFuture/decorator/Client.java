@@ -5,11 +5,11 @@ import java.util.concurrent.ExecutionException;
 
 public class Client {
 
-    public static void main( String[] args ) {
+    public static void main(final String[] args ) {
 
         //org.apache.commons.lang3.time.StopWatch, if I was bothered with dependencies
-        long startTime = (new Date()).getTime();
-        VisualComponentInterface borderedComponent = new BorderDecorator(
+        final long startTime = (new Date()).getTime();
+        final VisualComponentInterface borderedComponent = new BorderDecorator(
                                                         new LineNumberDecorator(
                                                                 new TextComponent("Hello World!\n" +
                                                                             "This is Phil, playing with his code.\n" +

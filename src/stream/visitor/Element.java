@@ -1,5 +1,5 @@
 package stream.visitor;
 
 public interface Element {
-    void accept(Visitor visitor);
+    void accept(final Visitor visitor);
 }
