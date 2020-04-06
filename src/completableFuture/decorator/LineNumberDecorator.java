@@ -1,5 +1,7 @@
 package completableFuture.decorator;
 
+import util.ThreadUtils;
+
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
@@ -34,7 +36,7 @@ public class LineNumberDecorator extends Decorator{
 
     private int findStartNumber(){
         // Network call to get border style, for example
-        simulateNetworkCall();
+        ThreadUtils.simulateNetworkCall();
         //do stuff that relates to this object
         return 1;
     }

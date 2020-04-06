@@ -1,5 +1,7 @@
 package completableFuture.decorator;
 
+import util.ThreadUtils;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.OptionalInt;
@@ -64,7 +66,7 @@ public class BorderDecorator extends Decorator{
 
     private static String queryStyle(){
         // Network call to get border style, for example
-        simulateNetworkCall();
+        ThreadUtils.simulateNetworkCall();
         //do static stuff
         return "gangnam";
     }
