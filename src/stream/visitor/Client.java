@@ -24,11 +24,26 @@ public class Client {
         //org.apache.commons.lang3.time.StopWatch, if I was bothered with dependencies
         final long startTime = (new Date()).getTime();
 
-        int total = shoppingCart.parallelStream()
+        CartTotalResponse response = shoppingCart.parallelStream()
                         .map(element -> element.accept(visitor))
-                        .collect(Collectors.summingInt(Integer::intValue));
+                        .collect(Collectors.teeing(
+                                Collectors.summingInt(Integer::intValue),
+                                Collectors.minBy(Integer::compareTo),
+                                (sum, min) -> new CartTotalResponse(sum, min.orElse(0))));
 
         System.out.println("That took "+Long.toString((new Date()).getTime() - startTime)+"ms");
-        System.out.println("The total billble for that cart is "+total);
+        System.out.println("The total billable for that cart is "+response.total+
+                            ".\nYou could drop your cheapest item valued "+response.cheapestPrice);
+    }
+
+    //oh lombok where art thou
+    private static class CartTotalResponse{
+        int total;
+        int cheapestPrice;
+
+        public CartTotalResponse(int total, int cheapestPrice) {
+            this.total = total;
+            this.cheapestPrice = cheapestPrice;
+        }
     }
 }
