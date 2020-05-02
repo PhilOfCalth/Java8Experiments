@@ -9,7 +9,7 @@
       <w>210</w>
       <h>50</h>
     </coordinates>
-    <panel_attributes>_ShoppingCartVisitor: Interface_
+    <panel_attributes>_PricingVisitor_
 --
 --
 ...</panel_attributes>
@@ -35,7 +35,7 @@
       <h>80</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Visitor&gt;&gt;
-_PricingVisitor_
+_ShoppingCartVisitor: Interface_
 --
 --
 int price(BiddableItemElement)
