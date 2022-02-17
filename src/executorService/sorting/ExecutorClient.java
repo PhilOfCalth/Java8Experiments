@@ -1,5 +1,6 @@
 package executorService.sorting;
 
+import java.text.DecimalFormat;
 import java.util.Arrays;
 import java.util.Random;
 import java.util.Set;
@@ -12,6 +13,7 @@ import java.util.function.Consumer;
 public class ExecutorClient {
 
     private static Random random = new Random();
+    private static DecimalFormat numberFormatter = new DecimalFormat("#,###,###,##0");
 
     public static void main(String... args) throws ExecutionException, InterruptedException {
         var len10 = generateRandomArray(10);
@@ -30,7 +32,7 @@ public class ExecutorClient {
 
     private static void raceAlgorithms(int arr[]) throws InterruptedException, ExecutionException {
 
-        var executor = Executors.newFixedThreadPool(4);
+        ExecutorService executor = Executors.newFixedThreadPool(4);
         Set<Callable<String>> algorithms = Set.of(
                 () -> timer(Algorithms::bubblesort, arr.clone(), "Bubblesort"),
                 () -> timer(Algorithms::insertionsort, arr.clone(), "Insertionsort"),
@@ -39,7 +41,6 @@ public class ExecutorClient {
         );
 
         System.out.println(executor.invokeAny(algorithms));
-        System.out.println();
         executor.shutdown();
     }
 
@@ -55,7 +56,8 @@ public class ExecutorClient {
 
         var startNanos = System.nanoTime();
         consumer.accept(arr);
+        var formattedTiming = numberFormatter.format((System.nanoTime() - startNanos));
 
-        return title+" sorted "+arr.length+" length array in "+(System.nanoTime() - startNanos)+"ns";
+        return title+" sorted "+arr.length+" length array in "+formattedTiming+"ns";
     }
 }

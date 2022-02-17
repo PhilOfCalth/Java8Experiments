@@ -8,7 +8,7 @@ public class Algorithms {
 
     /**
      * Bubblesort
-     * Repeatedly swap the adjacent elements if they are in wrong order.
+     * Repeatedly swap the adjacent elements if they are in the wrong order.
      * Time Complexity: O( n^2 )
      */
     static void bubblesort(int arr[]){
@@ -28,7 +28,7 @@ public class Algorithms {
 
     /**
      * Insertionsort
-     * Moves through the array and 1 at a time moves 1 element such that the left hand side becomes sorted.
+     * Moves through the array and 1 at a time moves 1 element such that the left side becomes sorted.
      * Time Complexity: O( n^2 )
      */
     static void insertionsort(int arr[])
